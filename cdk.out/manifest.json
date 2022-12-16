@@ -17,7 +17,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6ae190b295a7ae340d0ab96e8fc63168bc7f486a72a29bd2e6231f906648c23e.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c4b058451e8319a2e44aaddc117def5c147103eeac05cfc9f19390dfa50c02e0.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -94,18 +94,18 @@
             "data": "SpaceApihelloGET65983C27"
           }
         ],
-        "/Space-finder/SapcesTable": [
+        "/Space-finder/SapcesTableCDK": [
           {
             "type": "aws:cdk:hasPhysicalName",
             "data": {
-              "Ref": "SapcesTable36877307"
+              "Ref": "SapcesTableCDK2FE0B9F6"
             }
           }
         ],
-        "/Space-finder/SapcesTable/Resource": [
+        "/Space-finder/SapcesTableCDK/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "SapcesTable36877307"
+            "data": "SapcesTableCDK2FE0B9F6"
           }
         ],
         "/Space-finder/helloLambda/ServiceRole/Resource": [
@@ -118,6 +118,18 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "helloLambda79DCE371"
+          }
+        ],
+        "/Space-finder/helloLambdaNodeJs/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloLambdaNodeJsServiceRole17C143C3"
+          }
+        ],
+        "/Space-finder/helloLambdaNodeJs/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "helloLambdaNodeJs14E63891"
           }
         ],
         "/Space-finder/CDKMetadata/Default": [
