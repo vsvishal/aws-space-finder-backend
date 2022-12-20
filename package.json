@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@aws-cdk/aws-s3": "^1.183.0",
+    "@types/aws-lambda": "^8.10.109",
     "@types/node": "^18.11.14",
     "@types/uuid": "^9.0.0",
+    "aws-sdk": "^2.1276.0",
     "uuid": "^9.0.0"
   }
 }
