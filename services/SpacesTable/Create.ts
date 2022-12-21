@@ -6,7 +6,7 @@ import {
 } from "aws-lambda";
 import { v4 } from "uuid";
 
-const dbClient = new DynamoDB.DocumentClient();
+const dbClient = new DynamoDB.DocumentClient({region:"ap-south-1"});
 
 async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult>{
     const result: APIGatewayProxyResult ={
@@ -14,18 +14,20 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
         body: "Hello from DynamoDB"
     }
 
-    const item = {
-        spaceId: v4()
-    }
+    const item = typeof event.body === "object"? event.body: JSON.parse(event.body);
+    item.spaceId = v4(); 
 
     try {
         await dbClient.put({
-            TableName: "SpaceTable",
+            TableName: "SpacesTable",
             Item: item
-        })
+        }).promise()
     } catch (error) {
-        result.body = error.message
+        if (error instanceof Error) {
+            result.body = error.message
+        }
     }
+    result.body = JSON.stringify(`Created item with id: ${item.spaceId}`);
 
     return result
 

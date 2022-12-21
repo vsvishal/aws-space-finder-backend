@@ -243,18 +243,18 @@
     "aws:cdk:path": "Space-finder/SpaceApi/Default/hello/GET/Resource"
    }
   },
-  "SapcesTableCDK2FE0B9F6": {
+  "SpacesTable8A997355": {
    "Type": "AWS::DynamoDB::Table",
    "Properties": {
     "KeySchema": [
      {
-      "AttributeName": "spaceIdCDK",
+      "AttributeName": "spaceId",
       "KeyType": "HASH"
      }
     ],
     "AttributeDefinitions": [
      {
-      "AttributeName": "spaceIdCDK",
+      "AttributeName": "spaceId",
       "AttributeType": "S"
      }
     ],
@@ -262,12 +262,12 @@
      "ReadCapacityUnits": 5,
      "WriteCapacityUnits": 5
     },
-    "TableName": "SapcesTableCDK"
+    "TableName": "SpacesTable"
    },
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "Space-finder/SapcesTableCDK/Resource"
+    "aws:cdk:path": "Space-finder/SpacesTable/Resource"
    }
   },
   "helloLambdaNodeJsServiceRole17C143C3": {
@@ -335,7 +335,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "678e68ff1ba4391eaa87373a2d0d68070b30573523c233326b8449fcec2d1d4a.zip"
+     "S3Key": "4c57cb7462b6443747847cf97238d661963c244e1f4884e88bcc71d234ac13f7.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -357,7 +357,7 @@
    ],
    "Metadata": {
     "aws:cdk:path": "Space-finder/helloLambdaNodeJs/Resource",
-    "aws:asset:path": "asset.678e68ff1ba4391eaa87373a2d0d68070b30573523c233326b8449fcec2d1d4a",
+    "aws:asset:path": "asset.4c57cb7462b6443747847cf97238d661963c244e1f4884e88bcc71d234ac13f7",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }

@@ -368,25 +368,25 @@
               "version": "2.54.0"
             }
           },
-          "SapcesTableCDK": {
-            "id": "SapcesTableCDK",
-            "path": "Space-finder/SapcesTableCDK",
+          "SpacesTable": {
+            "id": "SpacesTable",
+            "path": "Space-finder/SpacesTable",
             "children": {
               "Resource": {
                 "id": "Resource",
-                "path": "Space-finder/SapcesTableCDK/Resource",
+                "path": "Space-finder/SpacesTable/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
                   "aws:cdk:cloudformation:props": {
                     "keySchema": [
                       {
-                        "attributeName": "spaceIdCDK",
+                        "attributeName": "spaceId",
                         "keyType": "HASH"
                       }
                     ],
                     "attributeDefinitions": [
                       {
-                        "attributeName": "spaceIdCDK",
+                        "attributeName": "spaceId",
                         "attributeType": "S"
                       }
                     ],
@@ -394,7 +394,7 @@
                       "readCapacityUnits": 5,
                       "writeCapacityUnits": 5
                     },
-                    "tableName": "SapcesTableCDK"
+                    "tableName": "SpacesTable"
                   }
                 },
                 "constructInfo": {
@@ -404,7 +404,7 @@
               },
               "ScalingRole": {
                 "id": "ScalingRole",
-                "path": "Space-finder/SapcesTableCDK/ScalingRole",
+                "path": "Space-finder/SpacesTable/ScalingRole",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.Resource",
                   "version": "2.54.0"
@@ -552,7 +552,7 @@
                       "s3Bucket": {
                         "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
                       },
-                      "s3Key": "678e68ff1ba4391eaa87373a2d0d68070b30573523c233326b8449fcec2d1d4a.zip"
+                      "s3Key": "4c57cb7462b6443747847cf97238d661963c244e1f4884e88bcc71d234ac13f7.zip"
                     },
                     "role": {
                       "Fn::GetAtt": [
