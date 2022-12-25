@@ -14,7 +14,7 @@
         ],
         "env": {
             "AWS_REGION":"ap-south-1",
-            "TABLE_NAME": "SpaceTable"
+            "TABLE_NAME": "SpacesTable"
         }
     }
     ]
