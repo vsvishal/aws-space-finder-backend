@@ -2,3 +2,12 @@
 
 GET {{endpoint}}/hello/
 ###
+
+POST {{endpoint}}/spaces/
+Content-Type: application/json
+
+{
+  "body": "{\"var1\":\"Kick Buttowski\",\"var2\":\"0.21\",\"var3\":\"awesome\"}",
+  "currentTime": "{{$timestamp}}"
+}
+###
