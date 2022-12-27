@@ -6,11 +6,15 @@ GET {{endpoint}}/hello/
 GET {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
 ###
 
+GET {{endpoint}}/spaces?location=Manjari%20Budruk
+###
+
 POST {{endpoint}}/spaces/
 Content-Type: application/json
 
 {
-  "body": "{\"var1\":\"Ninja Hattori\",\"var2\":\"11\",\"var3\":\"Ning Ning\"}",
-  "currentTime": "{{$timestamp}}"
+  "body": "{\"var1\":\"Vish\",\"var2\":\"11\",\"location\":\"Pune\"}",
+  "currentTime": "{{$timestamp}}",
+  "location": "Pune"
 }
 ###
