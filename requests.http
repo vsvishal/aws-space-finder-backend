@@ -9,6 +9,14 @@ GET {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
 GET {{endpoint}}/spaces?location=Manjari%20Budruk
 ###
 
+PUT {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
+Content-Type: application/json
+
+{
+  "location": "Keshavnagar"
+}
+###
+
 POST {{endpoint}}/spaces/
 Content-Type: application/json
 

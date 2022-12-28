@@ -1,10 +1,13 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { handler } from "../../services/SpacesTable/Read";
+import { handler } from "../../services/SpacesTable/Update";
 
 const event: APIGatewayProxyEvent = {
   queryStringParameters: {
-    location: "Manjari Budruk"
+   spaceId: "e3db9054-8468-4f33-a262-a9b3aa48e7f2"
   },
+  body: {
+    location: "MUNDHWA"
+  }
 } as any;
 
 const result = handler(event, {} as any).then((apiResult) => {
