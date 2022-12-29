@@ -18,6 +18,7 @@ async function handler(
     body: "Hello from DynamoDB",
   };
 
+ try {
   const spaceId = event.queryStringParameters?.[PRIMARY_KEY]
 
   if (spaceId) {
@@ -30,6 +31,11 @@ async function handler(
 
     result.body = JSON.stringify(deleteResult)
   }
+ } catch (error) {
+  if (error instanceof Error) {
+    result.body = error.message
+  }
+ }
 
   return result;
 }

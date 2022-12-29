@@ -4,6 +4,7 @@ import {
   APIGatewayProxyResult,
   Context,
 } from "aws-lambda";
+import { getEventBody } from "../Shared/Utils";
 
 const TABLE_NAME = process.env.TABLE_NAME as string;
 const PRIMARY_KEY = process.env.PRIMARY_KEY as string;
@@ -18,32 +19,38 @@ async function handler(
     body: "Hello from DynamoDB",
   };
 
-  const requestBody = typeof event.body == "object"? event.body: JSON.parse(event.body);
-  const spaceId = event.queryStringParameters?.[PRIMARY_KEY]
-  
-  if (requestBody && spaceId) {
-    const requestBodyKey = Object.keys(requestBody)[0];
-    const requestBodyValue = requestBody[requestBodyKey];
+  try {
+    const requestBody = getEventBody(event);
+    const spaceId = event.queryStringParameters?.[PRIMARY_KEY];
 
-    const updateResult = await dbClient.update({
-      TableName: TABLE_NAME,
-      Key: {
-        [PRIMARY_KEY]: spaceId
-      }, 
-      UpdateExpression: "set #zzzNew = :new",
-      ExpressionAttributeNames: {
-        "#zzzNew": requestBodyKey
-      },
-      ExpressionAttributeValues: {
-        ":new": requestBodyValue
-      },
-      ReturnValues: "UPDATED_NEW"
-      
-    }).promise();
+    if (requestBody && spaceId) {
+      const requestBodyKey = Object.keys(requestBody)[0];
+      const requestBodyValue = requestBody[requestBodyKey];
 
-    result.body = JSON.stringify(updateResult)
+      const updateResult = await dbClient
+        .update({
+          TableName: TABLE_NAME,
+          Key: {
+            [PRIMARY_KEY]: spaceId,
+          },
+          UpdateExpression: "set #zzzNew = :new",
+          ExpressionAttributeNames: {
+            "#zzzNew": requestBodyKey,
+          },
+          ExpressionAttributeValues: {
+            ":new": requestBodyValue,
+          },
+          ReturnValues: "UPDATED_NEW",
+        })
+        .promise();
+
+      result.body = JSON.stringify(updateResult);
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      result.body = error.message;
+    }
   }
-
   return result;
 }
 
