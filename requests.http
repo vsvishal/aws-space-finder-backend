@@ -3,13 +3,16 @@
 GET {{endpoint}}/hello/
 ###
 
-GET {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
+GET {{endpoint}}/spaces?spaceId=21be3f5c-b905-4d1d-90be-2db5a49f995d
+###
+
+GET {{endpoint}}/spaces
 ###
 
 GET {{endpoint}}/spaces?location=Manjari%20Budruk
 ###
 
-PUT {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
+PUT {{endpoint}}/spaces?spaceId=21be3f5c-b905-4d1d-90be-2db5a49f995d
 Content-Type: application/json
 
 {
@@ -25,4 +28,7 @@ Content-Type: application/json
   "currentTime": "{{$timestamp}}",
   "location": "Pune"
 }
+###
+
+DELETE {{endpoint}}/spaces?spaceId=e3db9054-8468-4f33-a262-a9b3aa48e7f2
 ###
